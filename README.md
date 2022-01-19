@@ -1,6 +1,6 @@
-# Week 3 Day 1: Recursion Day One
+# Week 3 Day 2: Recursion Day Two
 
-In class today, you'll be writing some code to get started with recursion.
+In class today, you'll be writing some more code to get started with recursion.
 
 <br />
 

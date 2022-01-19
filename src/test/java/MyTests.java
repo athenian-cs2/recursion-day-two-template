@@ -6,37 +6,51 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MyTests {
     @Test
-    public void testArithmeticSequence() {
-        assertEquals(3, MyMain.arithmeticSequence(1),"The " + 1 + "-th term should be: " + 3);
-        assertEquals(5, MyMain.arithmeticSequence(2),"The " + 2 + "-th term should be: " + 5);
-        assertEquals(7, MyMain.arithmeticSequence(3),"The " + 3 + "-th term should be: " + 7);
-        assertEquals(9, MyMain.arithmeticSequence(4),"The " + 4 + "-th term should be: " + 9);
+    public void testCountBigDigits() {
+        assertEquals(0, MyMain.countBigDigits(1234),"The number of big digits in " + 1234 + " should be: " + 0);
+        assertEquals(5, MyMain.countBigDigits(99999),"The number of big digits in " + 99999 + " should be: " + 5);
+        assertEquals(2, MyMain.countBigDigits(521931),"The number of big digits in " + 521931 + " should be: " + 2);
     }
 
     @Test
-    public void testCountX() {
-        assertEquals(1, MyMain.countX("hix"),"The number of times 'x' shows up in " + "hix" + " should be: " + 1);
-        assertEquals(2, MyMain.countX("xoxo"),"The number of times 'x' shows up in " + "xoxo" + " should be: " + 2);
-        assertEquals(2, MyMain.countX("xhix"),"The number of times 'x' shows up in " + "xhix" + " should be: " + 2);
-        assertEquals(3, MyMain.countX("xhixhix"),"The number of times 'x' shows up in " + "xhixhix" + " should be: " + 3);
+    public void testMoreEvenThanOdd() {
+        assertEquals(false, MyMain.moreOddThanEven(1234), "Whether there are more odd digits than even digits in 1234 should be: false");
+        assertEquals(true, MyMain.moreOddThanEven(99999), "Whether there are more odd digits than even digits in 99999 should be: true");
+        assertEquals(true, MyMain.moreOddThanEven(521931), "Whether there are more odd digits than even digits in 521931 should be: true");
     }
 
     @Test
-    public void testExponent() {
-        assertEquals(32, MyMain.exponent(2, 5),2 + "to the " + 5 + "-th power should be: " + 32);
-        assertEquals(25, MyMain.exponent(5, 2),5 + "to the " + 2 + "-th power should be: " + 25);
-        assertEquals(1, MyMain.exponent(4, 0),4 + "to the " + 0 + "-th power should be: " + 1);
-        assertEquals(216, MyMain.exponent(6, 3),6 + "to the " + 3 + "-th power should be: " + 216);
-        assertEquals(7, MyMain.exponent(7, 1),7 + "to the " + 1 + "-th power should be: " + 7);
+    public void testParenTrim() {
+        assertEquals("(abc)", MyMain.parenTrim("xyz(abc)123"), "Trimming \"xyz(abc)123\" should return: (abc)");
+        assertEquals("(hello)", MyMain.parenTrim("x(hello)"), "Trimming \"x(hello)\" should return: (hello)");
+        assertEquals("(xy)", MyMain.parenTrim("(xy)1"), "Trimming \"(xy)1\" should return: (xy)");
     }
 
     @Test
-    public void testCountHi() {
-        assertEquals(1, MyMain.countHi("hix"),"The number of times \"hi\" shows up in " + "hix" + " should be: " + 1);
-        assertEquals(2, MyMain.countHi("hellohihi"),"The number of times \"hi\" shows up in " + "hellohihi" + " should be: " + 2);
-        assertEquals(2, MyMain.countHi("hellohibyehi"),"The number of times \"hi\" shows up in " + "hellohihi" + " should be: " + 2);
-        assertEquals(1, MyMain.countHi("hihello"),"The number of times \"hi\" shows up in " + "hihello" + " should be: " + 1);
-        assertEquals(0, MyMain.countHi("x"),"The number of times \"hi\" shows up in " + "x" + " should be: " + 0);
-        assertEquals(1, MyMain.countHi("hi"),"The number of times \"hi\" shows up in " + "hi" + " should be: " + 1);
+    public void testAddDigits() {
+        assertEquals(4, MyMain.addDigits(1111), "The sum of the digits in 1111 should be: 4");
+        assertEquals(10, MyMain.addDigits(1234), "The sum of the digits in 1234 should be: 10");
+        assertEquals(18, MyMain.addDigits(9342), "The sum of the digits in 9342 should be: 18");
+        assertEquals(21, MyMain.addDigits(1965), "The sum of the digits in 1965 should be: 21");
+    }
+
+
+    @Test
+    public void testIsPalindrome() {
+        assertEquals(true, MyMain.isPalindrome("racecar"), "Whether or not the String \"racecar\" is a palindrome should be: true");
+        assertEquals(true, MyMain.isPalindrome("naan"), "Whether or not the String \"naan\" is a palindrome should be: true");
+        assertEquals(true, MyMain.isPalindrome("step on no pets"), "Whether or not the String \"step on no pets\" is a palindrome should be: true");
+        assertEquals(true, MyMain.isPalindrome("amanaplanacanalpanama"), "Whether or not the String \"amanaplanacanalpanama\" is a palindrome should be: true");
+        assertEquals(false, MyMain.isPalindrome("lemon"), "Whether or not the String \"lemon\" is a palindrome should be: false");
+        assertEquals(false, MyMain.isPalindrome("abca"), "Whether or not the String \"abca\" is a palindrome should be: false");
+        assertEquals(false, MyMain.isPalindrome("abbcdba"), "Whether or not the String \"abbcdba\" is a palindrome should be: false");
+    }
+
+    @Test
+    public void testReverse() {
+        assertEquals("rohcna", MyMain.reverse("anchor"), "The reverse of the String \"anchor\" should be: rohcna");
+        assertEquals("desserts", MyMain.reverse("stressed"), "The reverse of the String \"stressed\" should be: desserts");
+        assertEquals("abcdefgh", MyMain.reverse("hgfedcba"), "The reverse of the String \"hgfedcba\" should be: abcdefgh");
+        assertEquals("racecar", MyMain.reverse("racecar"), "The reverse of the String \"anchor\" should be: racecar");
     }
 }

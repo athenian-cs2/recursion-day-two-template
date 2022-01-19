@@ -1,45 +1,88 @@
 public class MyMain {
+    // Examples From Class:
+
     // This is the example problem that we did in class
-    // This uses recursion to calculate the factorial method
-    // factorial(5) = 5 * 4 * 3 * 2 * 1 = 120
-    public static int factorial(int x) {
+    // This uses recursion to count the total number
+    // of digits in a positive number
+    public static int numDigits(int x) {
         // Base case
-        if (x == 1) {
-            return 1;
+        if (x == 0) {
+            return 0;
         }
         // Recursive call
         else {
-            int subproblem = factorial(x-1);
-            int answer = x * subproblem;
-            return answer;
+            return 1 + numDigits(x / 10);
         }
     }
 
-    // Write a method that uses recursion to calculate the n-th term
-    // of the following arithmetic sequence: 3, 5, 7, 9, ...
-    // An arithmetic sequence is a sequence where the next number is
-    // some set amount larger than the previous number
+    // This is a wrapper method. It just calls the
+    // tail recursive version of num digits!
+    public static int numDigits2(int x) {
+        return numDigitsTR(x, 0);
+    }
+
+    // This is a tail recursive version of numDigits
+    // This method should never be called directly;
+    // rather the wrapper method numDigits2 should be called
+    public static int numDigitsTR(int x, int count) {
+        // Base case
+        if (x == 0) {
+            return count;
+        }
+        // Recursive call
+        else {
+            return numDigitsTR(x / 10, count + 1);
+        }
+    }
+
+
+    // In-class Practice Problems
+
+    // Write a method that uses recursion to calculate the number
+    // of "big" digits in a number
+    // A big digit is any digit that is at least 5
     // Examples:
-    // arithmeticSequence(4) => 9
-    // arithmeticSequence(1) => 3
-    public static int arithmeticSequence(int n) {
+    // countBigDigits(1234) => 0
+    // countBigDigits(99999) => 5
+    // countBigDigits(521931) => 2
+    public static int countBigDigits(int x) {
         // YOUR CODE HERE
         return -1;
     }
 
-    // Write a method that uses recursion to count the number
-    // of times lowercase 'x' shows up in a String
-    // Examples:
-    // countX("hix") => 1
-    // countX("ix") => 1
-    // countX("x") => 1
-    // countX("") => 0
+    // Write a method that uses recursion to calculate whether
+    // the number contains more odd digits than even digits
+    // You will almost certainly need to use **tail recursion!**
 
-    // Hint: to make the subproblem smaller, make the String shorter!
-    // Hint 2: multiple recursive cases might be helpful!
-    public static int countX(String str) {
+    // Hint: what additional parameters will you need to add?
+
+    // Hint 2: you might want to keep track of both the number
+    // of odd numbers and the number of even numbers
+
+    // Examples:
+    // moreOddThanEven(1234) => false because 2 of each
+    // moreOddThanEven(99999) => true because 5 odd and 0 even
+    // moreOddThanEven(521931) => true because 5 odd and 1 even
+    public static boolean moreOddThanEven(int x) {
         // YOUR CODE HERE
-        return -1;
+        return false;
+    }
+
+    // This might be helpful to get started:
+//    public static boolean moreOddThanEvenTR(...) {
+
+    // This method checks if a String is a palindrome
+    // (e.g. "racecar", "madam"), recursively
+    // Remember that a palindrome is a word that is the same forwards
+    // and backwards, so the first letter must match the last letter,
+    // the second letter must match the second to last letter, and so on
+    // Examples:
+    // isPalindrome("racecar") => true
+    // isPalindrome("madam") => true
+    // isPalindrome("racecars") => false
+    public static boolean isPalindrome(String str) {
+        // YOUR CODE HERE
+        return false;
     }
 
 
@@ -47,30 +90,45 @@ public class MyMain {
 
 
     // Methods for homework:
-    // Write a method that calculate the exponents, given a base
-    // and a power
+
+    // This method adds up the values of all digits
+    // in x, recursively
     // Examples:
-    // exponent(2, 5) = 2 * 2 * 2 * 2 * 2 = 32
-    // exponent(5, 2) = 5 * 5 = 25
-    // exponent(4, 0) = 1
-    public static int exponent(int base, int power) {
+    // countBigDigits(1234) => 10
+    // countBigDigits(99999) => 45
+    // countBigDigits(521931) => 21
+    public static int addDigits(int x) {
         // YOUR CODE HERE
         return -1;
     }
 
-    // Write a method that uses recursion to count the number
-    // of times "hi" shows up in a String
+    // Write a method that is given a String containing a single pair
+    // of matched parentheses containing some characters. This method
+    // should use recursion to "trim" off all the extra characters until
+    // only the parentheses and their contents remain
+    // You can assume that the String always contains this pair of parens
     // Examples:
-    // countHi("hix") => 1
-    // countHi("hellohihi") => 2
-    public static int countHi(String str) {
+    // parenTrim("xyz(abc)123") => "(abc)"
+    // parenTrim("x(hello)") => "(hello)"
+    // parenTrim("(xy)1") => "(xy)"
+    public static String parenTrim(String str) {
         // YOUR CODE HERE
-        return -1;
+        return "";
     }
+
+    // This method returns the orignal string reversed;
+    // tail recursion could be helpful, but it not required!
+    // Examples:
+    // reverse("desserts") => stressed
+    // reverse("racecar") => racecar
+    public static String reverse(String str) {
+        // YOUR CODE HERE
+        return "";
+    }
+
 
 
     public static void main(String[] args) {
         // Optional: Write some code here to test your methods!
-        System.out.println(factorial(5));
     }
 }
