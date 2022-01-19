@@ -20,10 +20,14 @@ public class MyTests {
     }
 
     @Test
-    public void testParenTrim() {
-        assertEquals("(abc)", MyMain.parenTrim("xyz(abc)123"), "Trimming \"xyz(abc)123\" should return: (abc)");
-        assertEquals("(hello)", MyMain.parenTrim("x(hello)"), "Trimming \"x(hello)\" should return: (hello)");
-        assertEquals("(xy)", MyMain.parenTrim("(xy)1"), "Trimming \"(xy)1\" should return: (xy)");
+    public void testIsPalindrome() {
+        assertEquals(true, MyMain.isPalindrome("racecar"), "Whether or not the String \"racecar\" is a palindrome should be: true");
+        assertEquals(true, MyMain.isPalindrome("naan"), "Whether or not the String \"naan\" is a palindrome should be: true");
+        assertEquals(true, MyMain.isPalindrome("step on no pets"), "Whether or not the String \"step on no pets\" is a palindrome should be: true");
+        assertEquals(true, MyMain.isPalindrome("amanaplanacanalpanama"), "Whether or not the String \"amanaplanacanalpanama\" is a palindrome should be: true");
+        assertEquals(false, MyMain.isPalindrome("lemon"), "Whether or not the String \"lemon\" is a palindrome should be: false");
+        assertEquals(false, MyMain.isPalindrome("abca"), "Whether or not the String \"abca\" is a palindrome should be: false");
+        assertEquals(false, MyMain.isPalindrome("abbcdba"), "Whether or not the String \"abbcdba\" is a palindrome should be: false");
     }
 
     @Test
@@ -34,17 +38,13 @@ public class MyTests {
         assertEquals(21, MyMain.addDigits(1965), "The sum of the digits in 1965 should be: 21");
     }
 
-
     @Test
-    public void testIsPalindrome() {
-        assertEquals(true, MyMain.isPalindrome("racecar"), "Whether or not the String \"racecar\" is a palindrome should be: true");
-        assertEquals(true, MyMain.isPalindrome("naan"), "Whether or not the String \"naan\" is a palindrome should be: true");
-        assertEquals(true, MyMain.isPalindrome("step on no pets"), "Whether or not the String \"step on no pets\" is a palindrome should be: true");
-        assertEquals(true, MyMain.isPalindrome("amanaplanacanalpanama"), "Whether or not the String \"amanaplanacanalpanama\" is a palindrome should be: true");
-        assertEquals(false, MyMain.isPalindrome("lemon"), "Whether or not the String \"lemon\" is a palindrome should be: false");
-        assertEquals(false, MyMain.isPalindrome("abca"), "Whether or not the String \"abca\" is a palindrome should be: false");
-        assertEquals(false, MyMain.isPalindrome("abbcdba"), "Whether or not the String \"abbcdba\" is a palindrome should be: false");
+    public void testParenTrim() {
+        assertEquals("(abc)", MyMain.parenTrim("xyz(abc)123"), "Trimming \"xyz(abc)123\" should return: (abc)");
+        assertEquals("(hello)", MyMain.parenTrim("x(hello)"), "Trimming \"x(hello)\" should return: (hello)");
+        assertEquals("(xy)", MyMain.parenTrim("(xy)1"), "Trimming \"(xy)1\" should return: (xy)");
     }
+
 
     @Test
     public void testReverse() {
